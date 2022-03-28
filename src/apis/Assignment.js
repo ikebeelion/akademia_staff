@@ -11,7 +11,7 @@ export default{
         return Api.post('/assignment/store/', form)
     },
     getAssignment(classroom, subject){
-        return Api.get('/assignments/'+classroom+subject)
+        return Api.get('/assignments/'+classroom+'/'+subject)
     },
     getSingleAssignment(id){
         return Api.get('/getSingleAssignment/'+id)
@@ -20,8 +20,9 @@ export default{
         return Api.put('/updateAssignment/'+id, form)
     },
     deleteAssignment(id){
-        return Api.delete('/delete-assignment/'+id)
-       
-
+        return Api.delete('/delete-assignment/'+id)       
     },
+    uploadImage(formData, config){
+        return Api.post('/upload-imageassignment', formData, config)
+    }
 }

@@ -46,6 +46,7 @@
 
         </section>
         <section  v-show="viewAssignment">
+            <center>
             <h1>View assignment</h1>
                     <div class="form-group">
                     <label for="">Subject</label>
@@ -58,7 +59,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Class Room</label>
-                    <select v-model="assignment.classroom">
+                    <select v-model="assignment.classroom" @input="getAssignment">
                         <option value="">--</option>
                         <option v-for="classroom in classroomgroups" :value="classroom.id" :key="classroom.id">
                             {{ classroom.classgroup.classgroupname }} - {{ classroom.classroom.classroom }}
@@ -67,8 +68,9 @@
                 </div><br/>
                 <div class="form-group">
                     <label for="">Submission Date</label>
-                    <input type="date" class="form-control col-4" v-model="assignment.submission_date" @input="getAssignment">
+                    <input type="date" class="form-control col-4" v-model="assignment.submission_date" >
                 </div>
+                </center>
                 
                 <table id="myTable">
                     <thead>
@@ -156,24 +158,27 @@ export default {
                     this.assignment.submission_date =null
                     this.assignment.description = null
         },
-        pickFile(e){
-                let file = e.target.files[0]
-
-                let reader = new FileReader()
-                if(file['size'] < 2111775){
-                    reader.onloadend = (file) => {
-                        this.assignment.image = reader.result
-                        // this.image = reader.result
-                    }
-                    reader.readAsDataURL(file)
-                }else{
-                        Swal.fire({
-                                    icon: 'warning',
-                                    title: 'Oooops',
-                                    text: 'You are uploading a large file'
+        pickFile(e){        
+        console.log(e.target.files[0]['size'])
+         if(e.target.files[0]['size'] < 2111775){
+            this.selectedfile = e.target.files[0]     
+            const config = {
+                headers:{'content-type':'multipart/form-data'}
+            }
+            var formData = new FormData()
+            formData.append('file',this.selectedfile)
+            Assignment.uploadImage(formData, config).then((result) => {
+                this.assignment.image = result.data            
+            }).catch((err) => {});
+         }else{
+                Swal.fire({
+                            icon: 'warning',
+                            title: 'Oooops',
+                            text: 'You are uploading a file larger than 2mb'
                             })
-                }
-        },
+            }
+      
+    },
        getClassroomGroups(){
             Assignment.getClassroomGroups(this.assignment.subdetail.groupid).then((result) => {
                 this.classroomgroups = result.data
@@ -199,6 +204,7 @@ export default {
             })
         },
         getAssignment(){
+            console.log(this.assignment)
             Assignment.getAssignment(this.assignment.classroom, this.assignment.subdetail.subject).then((result) => {
                 this.allassignments = result.data
             })
@@ -219,7 +225,7 @@ export default {
         },
         updateAssignment(){
             Assignment.updateAssignment(this.selectedid, this.assignment).then((result) => {
-                // this.getAssignment()
+                this.getAssignment()
                     Swal.fire({
                     position: 'top-end',
                     icon: 'success',

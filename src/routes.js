@@ -18,9 +18,9 @@ const router = createRouter({
         {path:'/attendance', name:'attendance', component:Attendance},
         {path:'/assignment', name:'assignment', component:Assignment},
         {path:'/curricula', name:'curricula', component:Curricula},
-        {path:'/classroom', name:'classroom', component:MyClass},
+        {path:'/classroom', name:'classroom', component:MyClassroom},
         {path:'/result', name:'result', component:Result},        
-        {path:'/class-managed', name:'classmanaged', component:MyClassroom},        
+        {path:'/class-managed', name:'classmanaged', component:MyClass},        
     ]
 })
 
