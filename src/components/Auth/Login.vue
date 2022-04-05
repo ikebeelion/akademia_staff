@@ -66,9 +66,11 @@ export default {
 			card.style.transform = 'rotateY(0deg)'
 		},
 
-        login(){					
-			User.login(this.logindata).then(() =>{
+        login(){			
+					
+			User.login(this.logindata).then((result) =>{
 				// getUser
+				localStorage.setItem("token", result.data['access_token'])							
 				User.auth().then((result)=>{
 					if(result.data.roleid == 3){
 						localStorage.setItem("auth", "true")
