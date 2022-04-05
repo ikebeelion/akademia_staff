@@ -217,7 +217,9 @@ button{
 	right: -1px;
 	top: -1px;
 }
-
+.submit-btn:hover{
+	background: rgb(41, 59, 216);
+}
 span{
 	font-size: 12px;
 	margin-left: 10px;
