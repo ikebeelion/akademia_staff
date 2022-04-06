@@ -3,11 +3,13 @@
 		<div class="card">
 			<div class="inner-box" id="card">
 				<div class="card-front">
-						<span class="icon">
-                			<img class="logo" src="logo.png" alt=""> 							
-							<h1>Akademia</h1>
-            			</span>
-					<h2>Staff Login</h2>
+						<center>
+							<span class="icon">
+								<img class="logo" src="logo.png" alt=""> 							
+								<h1>Akademia</h1>
+							</span>
+					</center>
+					<center><h3 style="font-weight:500">Staff Login</h3></center>
 					<p style="color:red">{{errors}}</p>
 					<form>
 						<input @input="checkInput" type="text" v-model="logindata.username" class="input-box" name="email" placeholder="Your Username" autocomplete="" required> 
@@ -220,7 +222,7 @@ button{
 	top: -1px;
 }
 .submit-btn:hover{
-	background: rgb(41, 59, 216);
+	background: rgb(11, 117, 25);
 }
 span{
 	font-size: 12px;
@@ -245,6 +247,7 @@ span{
 	justify-content: center;
 	align-content: center;
 	height: 60px;
+	max-width: 60px;
 	line-height: 60px;
 	padding-top: 0;
 	margin-top: -46px;
@@ -252,7 +255,7 @@ span{
 }
 .icon .logo{			
 	
-	width: 100px;
+	width: 100%;
 }
 </style>
 
