@@ -25,7 +25,7 @@
                                  {{resultProfile.genderid}}
                             </td>
                              <td><b>ADMISSION NO:</b>
-                                 WVHS/{{ resultProfile.studentuseraccountid}}0
+                                 {{ resultProfile.studentuseraccountid}}3171
                              </td>
                              <td rowspan=3>
                              <div class="img-container" style="margin-bottom:10px">

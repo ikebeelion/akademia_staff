@@ -363,6 +363,13 @@ export default {
         addComment(){
             Classroom.addComment(this.performanceComment).then((result) => {
                 this.performanceComment.comment = null
+                this.performanceComment.academicPeriodid =null
+                this.performanceComment.subjectid = null
+                this.performanceComment.studentid = null
+                this.performanceComment.ca = null
+                this.performanceComment.exam = null
+                this.performanceComment.score = null
+                this.performanceComment.avg= null
                 this.hideCommentModal()
                     Swal.fire({
                         position: 'top-end',
@@ -376,7 +383,7 @@ export default {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: 'Error',
+                    title: 'Error Adding Comment',
                     customClass: 'Swal-wide',
                     showConfirmButton: false,
                     timer: 3000

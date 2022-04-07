@@ -89,7 +89,7 @@
                                  {{resultProfile.genderid}}
                             </td>
                              <td><b>ADMISSION NO:</b>
-                                 WVHS/{{ resultProfile.studentuseraccountid}}0
+                                 {{ resultProfile.studentuseraccountid}}3171
                              </td>
                              <td rowspan=3>
                              <div class="img-container" style="margin-bottom:10px">
@@ -375,6 +375,7 @@
 import User from '../apis/User.js'
 import Result from '../apis/Result.js'
 import pulseLoader from 'vue-spinner/src/PulseLoader.vue'
+import Swal from 'sweetalert2'
 export default {
     components:[pulseLoader],
     data() {
@@ -610,13 +611,24 @@ export default {
                                                 
                 this.result = results                                 
                 this.resultMode = true
-            })
-
-            this.getPsychoMotor(studentid)
-            this.getRemarks(studentid)
-            this.getAffectiveDomain(studentid)
-            this.getComments(studentid, this.getResult.academicPeriodid )
-            
+            })                                          
+                    this.getPsychoMotor(studentid)
+                    this.getRemarks(studentid)
+                    this.getAffectiveDomain(studentid)
+                    this.getComments(studentid, this.getResult.academicPeriodid )
+                
+                
+                
+                
+                
+             Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Loaded',
+                    customClass: 'Swal-wide',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
 
         },
 
@@ -673,7 +685,7 @@ export default {
         },
 
         getRemarks(studentid){
-            Result.getRemarks(studentid,this.getResult.academicPeriodid).then((result) => {
+            Result.getRemarks(studentid, this.getResult.academicPeriodid).then((result) => {
                 this.remark = result.data
             })
         },
