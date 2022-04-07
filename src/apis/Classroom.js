@@ -24,7 +24,7 @@ export default{
         return Api.get('/type/'+branchid)
     },
     scoreStudentResult(form){
-        return Api.post('/score/', form)
+        return Api.post('/score', form)
     },
     addComment(form){
         return Api.post('/comment/store', form) 
@@ -43,16 +43,16 @@ export default{
         return Api.put('/deletepsychmotor/'+id)
     },
     postPsychomotor(form){
-        return Api.post('/storepsychmotor/', form)
+        return Api.post('/storepsychmotor', form)
     },
     getDomains(id){
         return Api.get('/domains/'+id)
     },
     submitAffectiveDomain(form){
-        return Api.put('/deletedomain/', form)
+        return Api.put('/deletedomain', form)
     },
     postDomain(form){
-        return Api.post('/storedomain/', form)
+        return Api.post('/storedomain', form)
     }
 
 }

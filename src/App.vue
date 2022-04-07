@@ -78,6 +78,9 @@
 			</div>
 			
 			
+			<p style="color:white; margin-left:25%">
+				Logged In: {{this.user.username}}
+			</p>
 		<div>
 			<button @click.prevent="logout" style="background:red; border:none; border-radius:20px; width:70px"> 
 					<i class="fa fa-sign-out" aria-hidden="true"></i>
