@@ -60,12 +60,12 @@
             <div class="form-group">
                 <center>
                     <div class="img-container" style="margin-bottom:10px">
-                        <img :src="'http://localhost:8000/images/school/'+this.schoolProfile.schoollogo" alt="school photo" height="80px" width="100px">
+                        <img :src="'https://raw.githubusercontent.com/ikebeelion/akademia_api/main/public/images/school/'+this.schoolProfile.schoollogo" alt="school photo" height="80px" width="100px">
                     </div>
                 </center>
                 <center>
                     <div class="img-watermark" style="margin-bottom:10px">
-                        <img :src="'http://localhost:8000/images/school/'+this.schoolProfile.schoollogo" alt="school photo" height="80px" width="100px">
+                        <img :src="'https://raw.githubusercontent.com/ikebeelion/akademia_api/main/public/images/school/'+this.schoolProfile.schoollogo" alt="school photo" height="80px" width="100px">
                     </div>
                 </center>
             </div>

@@ -4,7 +4,7 @@
         <!-- SCHOOL INFORMATION -->
             <div class="form-group-row">
                 <div class="img-container" style="margin-bottom:10px">
-                    <img :src="'http://localhost:8000/images/school/'+this.schoolProfile.schoollogo" alt="school photo" height="80px" width="100px">
+                    <img :src="'https://raw.githubusercontent.com/ikebeelion/akademia_api/main/public/images/school/'+this.schoolProfile.schoollogo" alt="school photo" height="80px" width="100px">
                 </div>
                 <center style="margin-left:2%">
                     <h1 id="school-name">{{this.schoolProfile.schoolname}}</h1>
@@ -29,7 +29,7 @@
                              </td>
                              <td rowspan=3>
                              <div class="img-container" style="margin-bottom:10px">
-                                  <img :src="'http://localhost:8000/images/students/'+this.resultProfile.photo" alt="student photo" height="80px" width="90px">
+                                  <img :src="'https://raw.githubusercontent.com/ikebeelion/akademia_api/main/public/images/students/'+this.resultProfile.photo" alt="student photo" height="80px" width="90px">
                              </div>
                               </td>
                         </tr>
