@@ -199,20 +199,20 @@ export default {
                     classid:null,
                 },
                 psychomotorRemarks:{
-                    studentid:null,
-                    academicPeriodid:null,
+                    studentid:"",
+                    academicPeriodid:"",
                     psychomotor:[],
                     remarks: {
-                            teacher:null,
-                            principal:null
+                            teacher:"",
+                            principal:""
                         }
 
                 },
                 studentName:null,
                 domains:null,
                 domain:{
-                    studentid:null,
-                    academicPeriodid:null,
+                    studentid:"",
+                    academicPeriodid:"",
                     affective_domain:[],
                 }
 
@@ -230,14 +230,14 @@ export default {
         },
 
         checkInput2(){
-            if(this.psychomotorRemarks.academicPeriodid != null && this.psychomotorRemarks.psychomotor != [] && this.psychomotorRemarks.remarks.teacher != null && this.psychomotorRemarks.remarks.principal !=null ){
+            if(this.psychomotorRemarks.academicPeriodid != "" && this.psychomotorRemarks.psychomotor != [] && this.psychomotorRemarks.remarks.teacher != "" && this.psychomotorRemarks.remarks.principal !="" ){
                 this.checkFilled = false
             }else{
                 this.checkFilled = true
             }
         },
          checkInput3(){
-            if(this.domain.academicPeriodid != null && this.domain.affective_domain != []  ){
+            if(this.domain.academicPeriodid != "" && this.domain.affective_domain != []  ){
                 this.checkFilled = false
             }else{
                 this.checkFilled = true

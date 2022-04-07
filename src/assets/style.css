@@ -226,9 +226,7 @@ table tbody tr:hover{
 	background-color: #f1f1eb;
 
 }
-button:disabled{
-	background:red;
-} 
+ 
 table tbody td{
 	padding: 10px;
 }
@@ -261,6 +259,10 @@ table thead tr th:last-child{
 	width: 40%;
 	border-radius: 20px;
 
+}
+
+button:disabled{
+	background:red;
 }
 .main button:hover{
 	background-color: #062833;
