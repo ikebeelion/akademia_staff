@@ -75,7 +75,7 @@
                                                                 <select v-model="scoreStudent.academicPeriodid" class="form-control" @change="checkInput">
                                                                     <option value="">select</option>
                                                                     <option v-for="period in academicPeriods" :key="period.id" :value="period.id">
-                                                                        {{ period.session.session }} - {{ period.term.term }}
+                                                                        {{ period.session.session }} - {{ period.term }}
                                                                     </option>
                                                                 </select>
                                                                 <label class="form-label">Subject</label>
@@ -103,7 +103,7 @@
                                                                 <select v-model="performanceComment.academicPeriodid" class="form-control" @change="commentInput">
                                                                     <option value="">select</option>
                                                                     <option v-for="period in academicPeriods" :key="period.id" :value="period.id">
-                                                                        {{ period.session.session }} - {{ period.term.term }}
+                                                                        {{ period.session.session }} - {{ period.term }}
                                                                     </option>
                                                                 </select>
                                                                 <label class="form-label">Subject</label>
