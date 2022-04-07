@@ -67,7 +67,7 @@
                                         <div class="form-group">
                                             <label for="">Class Room</label>
                                             <select v-model="attendance.classroom">
-                                                <option value="nul">Select Subject First--</option>
+                                                <option value="null">Select Subject First--</option>
                                                 <option v-for="classroom in classroomgroups" :value="classroom.id" :key="classroom.id">
                                                     {{ classroom.classgroup.classgroupname }} - {{ classroom.classroom.classroom }}
                                                 </option>
