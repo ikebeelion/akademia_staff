@@ -226,7 +226,9 @@ table tbody tr:hover{
 	background-color: #f1f1eb;
 
 }
-
+button:disabled{
+	background:red;
+} 
 table tbody td{
 	padding: 10px;
 }

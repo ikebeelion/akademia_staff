@@ -135,23 +135,23 @@
                                                     </select>
                                                 </div>
                                             </center>
-                                                                <table class="table">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th>Domain</th>
-                                                                            <th>Rating</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr v-for="dom in domains" :key="dom.id">
-                                                                            <td>{{dom.affective_domain}}</td>
-                                                                            <td v-for="rating in psychratings" :key="rating.id">
-                                                                                <label for="">{{rating.rating}}</label>
-                                                                                 <input type="checkbox" :value="{domaintype:dom.id, rating:rating.id}" v-model="domain.affective_domain" @input="checkInput3">
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Domain</th>
+                                                        <th>Rating</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr v-for="dom in domains" :key="dom.id">
+                                                        <td>{{dom.affective_domain}}</td>
+                                                        <td v-for="rating in psychratings" :key="rating.id">
+                                                            <label for="">{{rating.rating}}</label>
+                                                                <input type="checkbox" :value="{domaintype:dom.id, rating:rating.id}" v-model="domain.affective_domain" @input="checkInput3">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
             <center style="margin-bottom:20px">
                 <button class="btn btn-success" :disabled="checkFilled == true" @click="submitAffectiveDomain()">
                         Submit
@@ -341,7 +341,7 @@ export default {
         },
 
         submitPsychMOtor(){
-            Classroom.submitPsychMOtor( this.psychomotorRemarks).then((result) => {
+            Classroom.submitPsychMOtor(this.psychomotorRemarks).then((result) => {
                 Classroom.postPsychomotor(this.psychomotorRemarks).then((result) => {
                     this.psychomotorRemarks.remarks.teacher = null
                     this.psychomotorRemarks.remarks.principal = null

@@ -39,8 +39,8 @@ export default{
     getPsych(branchid){
         return Api.get('/psychomotors/'+branchid)
     },
-    submitPsychMOtor(id){
-        return Api.put('/deletepsychmotor/'+id)
+    submitPsychMOtor(form){
+        return Api.put('/deletepsychmotor', form)
     },
     postPsychomotor(form){
         return Api.post('/storepsychmotor', form)
