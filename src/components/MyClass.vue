@@ -81,7 +81,7 @@
                                                                 <select v-model="psychomotorRemarks.academicPeriodid" class="form-control" @change="checkInput2">
                                                                     <option value="null">select</option>
                                                                     <option v-for="period in academicPeriods" :key="period.id" :value="period.id">
-                                                                        {{ period.session.session }} - {{ period.term.term }}
+                                                                        {{ period.session.session }} - {{ period.term }}
                                                                     </option>
                                                                 </select>
                                                             </div>
@@ -130,7 +130,7 @@
                                                     <select v-model="domain.academicPeriodid" class="form-control" @change="checkInput3">
                                                         <option value="null">select</option>
                                                         <option v-for="period in academicPeriods" :key="period.id" :value="period.id">
-                                                            {{ period.session.session }} - {{ period.term.term }}
+                                                            {{ period.session.session }} - {{ period.term }}
                                                         </option>
                                                     </select>
                                                 </div>
