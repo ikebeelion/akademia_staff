@@ -348,8 +348,6 @@ export default {
                     this.psychomotorRemarks.psychomotor = []
                     this.psychomotorRemarks.studentid = null
                     this.psychomotorRemarks.academicPeriodid = null
-                    this.hideRemarkModal()
-
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -471,3 +469,8 @@ export default {
 
 }
 </script>
+<style>
+    button:disabled{
+        background:red;
+    }    
+</style>
