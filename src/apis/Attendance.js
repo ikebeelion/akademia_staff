@@ -12,7 +12,7 @@ export default{
         return Api.get('/suject_teacher/'+id)
     },
     saveAttendance(form){
-        return Api.post('/save_attendance/', form)
+        return Api.post('/save_attendance', form)
     },
     getAttendance(id1,id2,id3){
         return Api.get('/attendance/'+id1+'/'+id2+'/'+id3)

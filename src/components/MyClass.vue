@@ -383,8 +383,7 @@ export default {
                     this.domain.affective_domain = []
                     this.domain.studentid = null
                     this.domain.academicPeriodid = null
-                    this.hideAffectiveModal()
-
+                    // this.hideAffectiveModal()
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',

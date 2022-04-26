@@ -8,7 +8,7 @@
                 <input type="file" class="form-control" @click="pickFile">
             </div>
             <button class="btn btn-success mt-2 col-4" @click="uploadCurricula">
-                <i class="fa fa-upload" aria-hidden="true"></i>
+                <i class="fas fa-upload" aria-hidden="true"></i>
             </button>
             </center>
     </section>

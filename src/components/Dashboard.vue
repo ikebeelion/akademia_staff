@@ -17,7 +17,7 @@
 					
 				</div>
 				<div class="iconBox">					
-					<i class="fa fa-book" aria-hidden="true"></i>
+					<i class="fas fa-book" aria-hidden="true"></i>
 				</div>
 
 			</div>
@@ -35,7 +35,7 @@
 						</div>
 				</div>
 				<div class="iconBox">
-				 <i class="fa fa-chalkboard-teacher"></i>
+				 <i class="fas fa-chalkboard-teacher"></i>
 				</div>
 			</div>
 

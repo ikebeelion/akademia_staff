@@ -129,64 +129,47 @@
                 </table>
                    <!-- STUDENT RESULT -->
                             <table style="margin:3%; ">
-                                <thead class="thead">
-                                    <tr>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <!-- <td rowspan="2">HESOYAM</td> -->
-                                        <th colspan="3">
-                                            <center>CA</center>
-                                        </th>
-                                        <th rowspan="2">EXAM</th>
-                                        <th rowspan="2">TOTAL</th>
-                                        <th rowspan="2">GRADE</th>
-                                        <th rowspan="2">REMARK</th>
-                                    </tr>
+                                <thead class="thead">                                
                                     <tr>
                                         <th>Subjects</th>
                                         <th>Credit Load</th>
-                                        <th>G.P.A</th>
-                                        <th>1st</th>
-                                        <th>2nd</th>
-                                        <th>3rd</th>
+                                        <th>G.P.A</th>  
+                                        <th>CA</th>   
+                                        <th>EXAM</th>
+                                        <th>TOTAL</th>
+                                        <th>GRADE</th>
+                                        <th>REMARK</th>                                   
                                     </tr>
                                 </thead>
                                 <tbody :key="resultKey" >
                                     <tr v-for="res in result" :key="res.id" >                                            
                                             <td><center>{{res[0]['title']}}</center></td>                                            
                                             <td><center>{{res[0]['creditload']}}</center></td>
-                                            <td><center>{{gradeGpa((res[0]['creditload']), sumScore(res[0]['score'],res[1]['score'],res[2]['score'],res[3]['score'])) }}</center></td>
+                                            <td><center>{{gradeGpa((res[0]['creditload']), sumScore(res[0]['score'],res[1]['score'])) }}</center></td>
                                             <td><center>{{res[0]['score'] }}</center></td>
-                                            <td><center>{{res[1]['score'] }}</center></td>
-                                            <td><center>{{res[2]['score'] }}</center></td>
-                                            <td><center>{{res[3]['score'] }}</center></td>
-                                            <td><center>{{sumScore(res[0]['score'],res[1]['score'],res[2]['score'],res[3]['score']) }}</center></td>
-                                            <td><center>{{gradeResult(sumScore(res[0]['score'],res[1]['score'],res[2]['score'],res[3]['score'])) }}</center></td>
-                                            <td class="distinction" v-if="distinction(sumScore(res[0]['score'],res[1]['score'],res[2]['score'],res[3]['score']))">
-                                                <center>{{distinction(sumScore(res[0]['score'],res[1]['score'],res[2]['score'],res[3]['score'])) }}</center>
+                                            <td><center>{{res[1]['score'] }}</center></td>                                            
+                                            <td><center>{{sumScore(res[0]['score'],res[1]['score']) }}</center></td>
+                                            <td><center>{{gradeResult(sumScore(res[0]['score'],res[1]['score'])) }}</center></td>
+                                            <td class="distinction" v-if="distinction(sumScore(res[0]['score'],res[1]['score']))">
+                                                <center>{{distinction(sumScore(res[0]['score'],res[1]['score'])) }}</center>
                                             </td>
-                                            <td class="verygood" v-if="verygood(sumScore(res[0]['score'],res[1]['score'],res[2]['score'],res[3]['score']))">
-                                                <center>{{verygood(sumScore(res[0]['score'],res[1]['score'],res[2]['score'],res[3]['score'])) }}</center>
+                                            <td class="verygood" v-if="verygood(sumScore(res[0]['score'],res[1]['score']))">
+                                                <center>{{verygood(sumScore(res[0]['score'],res[1]['score'])) }}</center>
                                             </td>
-                                            <td class="credit" v-if="credit(sumScore(res[0]['score'],res[1]['score'],res[2]['score'],res[3]['score']))">
-                                                <center>{{credit(sumScore(res[0]['score'],res[1]['score'],res[2]['score'],res[3]['score'])) }}</center>
+                                            <td class="credit" v-if="credit(sumScore(res[0]['score'],res[1]['score']))">
+                                                <center>{{credit(sumScore(res[0]['score'],res[1]['score'])) }}</center>
                                             </td>
-                                            <td class="pass" v-if="pass(sumScore(res[0]['score'],res[1]['score'],res[2]['score'],res[3]['score'])) ">
-                                                <center>{{pass(sumScore(res[0]['score'],res[1]['score'],res[2]['score'],res[3]['score'])) }}</center>
+                                            <td class="pass" v-if="pass(sumScore(res[0]['score'],res[1]['score'])) ">
+                                                <center>{{pass(sumScore(res[0]['score'],res[1]['score'])) }}</center>
                                             </td>
-                                            <td class="fail" v-if="fail(sumScore(res[0]['score'],res[1]['score'],res[2]['score'],res[3]['score']))">
-                                                <center>{{fail(sumScore(res[0]['score'],res[1]['score'],res[2]['score'],res[3]['score'])) }}</center>
+                                            <td class="fail" v-if="fail(sumScore(res[0]['score'],res[1]['score']))">
+                                                <center>{{fail(sumScore(res[0]['score'],res[1]['score'])) }}</center>
                                             </td>
                                             
                                     </tr>
                                 </tbody>
                             </table>
-                              
-                            
-                             
-                                    
-                                    
+             
                                         <div class="form-group">
                                         <table>
                                                 <thead>
@@ -329,7 +312,7 @@
                             </table>
                             
                                
-                        <!-- PERFORMANCE COMMENT -->
+                        <!-- PERFORMANCE COMMENT
                              <table>
                                     <thead>
                                         <tr>
@@ -358,7 +341,7 @@
                                             </td>
                                         </tr>
                                     </tbody>
-                                </table>
+                                </table>-->
                           
                         <div id="print">
                                 <h1 @click.prevent="print">
@@ -501,8 +484,8 @@ export default {
                     })
                 },
 
-        sumScore(a,b,c,d){                        
-            return parseFloat(a)+parseFloat(b)+parseFloat(c)+parseFloat(d)
+        sumScore(a,b){                        
+            return parseFloat(a)+parseFloat(b)
         },
 
         getTotalScores(){            
