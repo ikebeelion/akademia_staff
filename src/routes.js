@@ -7,7 +7,7 @@ import Attendance from './components/Attendance.vue'
 import Assignment from './components/Assignment.vue'
 import Curricula from './components/Curricula.vue'
 import Result from './components/Result.vue'
-
+import ScoreStudent from './components/ScoreStudents.vue'
 
 
 const router = createRouter({
@@ -21,6 +21,7 @@ const router = createRouter({
         {path:'/classroom', name:'classroom', component:MyClassroom},
         {path:'/result', name:'result', component:Result},        
         {path:'/class-managed', name:'classmanaged', component:MyClass},        
+        {path: '/scorestudents', name:'score', component:ScoreStudent}
     ]
 })
 

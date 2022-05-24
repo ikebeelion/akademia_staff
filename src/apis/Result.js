@@ -50,4 +50,10 @@ export default{
     getAcademicPeriod(branchid){
         return Api.get('/period/'+branchid)
     },
+    getResultType(branchid){
+        return Api.get('/type/'+branchid)
+    },
+   
+
+    
 }

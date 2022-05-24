@@ -72,7 +72,7 @@ export default {
 					
 			User.login(this.logindata).then((result) =>{
 				// getUser
-				localStorage.setItem("token", result.data['access_token'])							
+				localStorage.setItem("stafftoken", result.data['access_token'])							
 				window.location.href = 'dashboard'
 				User.auth().then((result)=>{
 					if(result.data.roleid == 3){

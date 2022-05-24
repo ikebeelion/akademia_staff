@@ -18,14 +18,14 @@
 						<span class="title">Dashboard</span>
 					</router-link>
 				</li>				
-          <!-- <li>		
-          <router-link @click="closeToggle"  to="/attendance" active-class="activeLink">
+          <li>		
+          <router-link @click="closeToggle"  to="/scorestudents" active-class="activeLink">
             <span class="icon"> 
-                      <i class="fas fa-clock" aria-hidden="true"></i>
+                      <i class="fas fa-check" aria-hidden="true"></i>
                   </span>
-            <span class="title">Attendance</span>
+            <span class="title">Score Students</span>
           </router-link>
-         </li> -->
+         </li>
           <li>		
           <router-link @click="closeToggle"  to="/assignment" active-class="activeLink">
             <span class="icon"> 
@@ -34,15 +34,15 @@
             <span class="title">Assignment</span>
           </router-link>
          </li>
-          <li>		
+        <li>		
           <router-link @click="closeToggle"  to="/curricula" active-class="activeLink">
             <span class="icon"> 
                       <i class="fas fa-file-text" aria-hidden="true"></i>
                   </span>
             <span class="title">Upload Curriculum</span>
           </router-link>
-         </li>
-          <li>		
+        </li>
+        <li>		
           <router-link @click="closeToggle"  to="/classroom" active-class="activeLink">
             <span class="icon"> 
                       <i class="fas fa-chalkboard-teacher    "></i>
@@ -65,28 +65,26 @@
 		<!-- <Result /> -->
 		
         <div class="main" v-if="this.$route.path != '/'">		
-        <div class="topbar">
-            <div class="toggle" @click.prevent="toggleMenu"></div>				                
-			<div class="schoolinfo">
-				<h1>
-					{{this.schoolProfile.schoolname}}
-					
-				</h1>
-				<small>
-						<p>{{this.schoolProfile.address}}</p>	
-					</small>
+        	<div class="topbar">
+            	<div class="toggle" @click.prevent="toggleMenu"></div>				                
+				<div class="schoolinfo">
+					<h1>
+						{{this.schoolProfile.schoolname}}
+						
+					</h1>
+					<small>
+							<p>{{this.schoolProfile.address}}</p>	
+						</small>
+				</div>					
+				<p style="color:white; margin-left:25%">
+					Logged in as: {{this.user.username}}
+				</p>
+			<div>
+				<button @click.prevent="logout" style="background:red; border:none; border-radius:20px; width:70px"> 
+						<i class="fas fa-sign-out" aria-hidden="true"></i>
+				</button>
 			</div>
-			
-			
-			<p style="color:white; margin-left:25%">
-				Logged In: {{this.user.username}}
-			</p>
-		<div>
-			<button @click.prevent="logout" style="background:red; border:none; border-radius:20px; width:70px"> 
-					<i class="fas fa-sign-out" aria-hidden="true"></i>
-			</button>
-			</div>
-         </div>
+         	</div>
           <div class="content">
             <router-view />
           </div>

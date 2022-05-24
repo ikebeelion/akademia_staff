@@ -1,5 +1,6 @@
 <template>
  <div>
+ <TransitionGroup name="content">
     <h1>Class Management</h1>
     <section v-if="!scoreaStudent || !addaComment">
             <h4 class="card-title">Classrom Managed</h4><s></s>
@@ -88,12 +89,12 @@
                                                                 <label class="form-label">Score Obtained</label>
                                                                 <input type="number" step="any" class="form-control" v-model="scoreStudent.score">
                                                             </div>
-                                                            </center>
-                                                            <center>
-                                                                <button class="btn btn-success" :disabled="checkFilled == true" @click="scoreStudentResult()">
-                                                                    Submit
-                                                                </button>
-                                                            </center>
+    </center>
+    <center>
+        <button class="btn btn-success" :disabled="checkFilled == true" @click="scoreStudentResult()">
+            Submit
+        </button>
+    </center>
     </section>
     <section v-if="addaComment" id="addComment">
         <center>
@@ -132,6 +133,7 @@
                                                                 </button>
                                                             </center>
     </section>
+    </TransitionGroup>
         </div>
 
 </template>

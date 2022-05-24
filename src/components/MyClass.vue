@@ -15,55 +15,55 @@
                     </tr>                                                
                 </thead>
                 <tbody>
-                                                <tr v-for="student in students" :key="student.studentuseraccountid">
-                                                    <td>{{student.firstname}}</td>
-                                                    <td>{{student.lastname}}</td>
-                                                    <td>{{student.genderid}}</td>
-                                                    <td>
-                                                        <button style="width:50px" @click="openModal(student.studentuseraccountid)">
-                                                            Score
-                                                        </button>
-                                                        <button style="width:250px" @click="openPRModal(student.studentuseraccountid)">
-                                                            Psychomotor & Remarks
-                                                        </button>
-                                                        <button style="width:200px" @click="openAffectiveModal(student.studentuseraccountid)">
-                                                            Affective Domain
-                                                        </button>
+        <tr v-for="student in students" :key="student.studentuseraccountid">
+            <td>{{student.firstname}}</td>
+            <td>{{student.lastname}}</td>
+            <td>{{student.genderid}}</td>
+            <td>
+                <button style="width:20%" @click="openModal(student.studentuseraccountid)">
+                    Score
+                </button>
+                <button style="width:40%" @click="openPRModal(student.studentuseraccountid)">
+                     Psychomotor & Remarks
+                </button>
+                <button style="width:40%" @click="openAffectiveModal(student.studentuseraccountid)">
+                    Affective Domain
+                </button>
 
-                                                    </td>
-                                                </tr>
+            </td>
+        </tr>
 
-                                                </tbody>
-                                            </table>
+        </tbody>
+    </table>
         </section>
         <section v-if="scoreaStudent" id="scoreStudent">
             <h1>Score {{studentName }}</h1>
             <center>
                 <div class="form-group">
-                                                    <label>Result Type</label>
-                                                    <select v-model="scoreStudent.resultTypeid" class="form-control" @change="checkInput">
-                                                    <option value="null">select</option>
-                                                        <option v-for="type in resultTypes" :key="type.id" :value="type.id">
-                                                            {{ type.resulttype }}
-                                                        </option>
-                                                    </select>
-                                                    <label>Academic Period</label>
-                                                    <select v-model="scoreStudent.academicPeriodid" class="form-control" @change="checkInput">
-                                                        <option value="null">select</option>
-                                                        <option v-for="period in academicPeriods" :key="period.id" :value="period.id">
-                                                            {{ period.session.session }} - {{ period.term }}
-                                                        </option>
-                                                    </select>
-                                                    <label>Subject</label>
-                                                    <select v-model="scoreStudent.subjectid" class="form-control" @change="checkInput">
-                                                        <option value="null">select</option>
-                                                        <option v-for="subject in subjects" :key="subject.id" :value="subject.id">
-                                                            {{ subject.subjecttitle }} - {{subject.classgroupname}}
-                                                        </option>
-                                                    </select>
-                                                    <label>Score Obtained</label>
-                                                    <input type="number" step="any" class="form-control" v-model="scoreStudent.score">
-                                                </div>
+                <label>Result Type</label>
+                <select v-model="scoreStudent.resultTypeid" class="form-control" @change="checkInput">
+                 <option value="null">select</option>
+                    <option v-for="type in resultTypes" :key="type.id" :value="type.id">
+                        {{ type.resulttype }}
+                    </option>
+                </select>
+                <label>Academic Period</label>
+                <select v-model="scoreStudent.academicPeriodid" class="form-control" @change="checkInput">
+                    <option value="null">select</option>
+                    <option v-for="period in academicPeriods" :key="period.id" :value="period.id">
+                        {{ period.session.session }} - {{ period.term }}
+                    </option>
+                </select>
+                <label>Subject</label>
+                <select v-model="scoreStudent.subjectid" class="form-control" @change="checkInput">
+                    <option value="null">select</option>
+                    <option v-for="subject in subjects" :key="subject.id" :value="subject.id">
+                        {{ subject.subjecttitle }} - {{subject.classgroupname}}
+                    </option>
+                </select>
+                <label>Score Obtained</label>
+                <input type="number" step="any" class="form-control" v-model="scoreStudent.score" placeholder="Input Score">
+            </div>
             </center>
             <center style="margin-bottom:20px">
                 <button :disabled="checkFilled == true" @click="scoreStudentResult()">
@@ -75,83 +75,88 @@
             <center>            
             <h5 class="modal-title" id="my-modal-title">Psychomotor Domain and Remark for {{studentName }}</h5>
             <div>
-                                                         <div>
-                                                            <div class="form-group mb-2">
-                                                                <label>Academic Period</label>
-                                                                <select v-model="psychomotorRemarks.academicPeriodid" class="form-control" @change="checkInput2">
-                                                                    <option value="null">select</option>
-                                                                    <option v-for="period in academicPeriods" :key="period.id" :value="period.id">
-                                                                        {{ period.session.session }} - {{ period.term }}
-                                                                    </option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="form-group mb-4">
-                                                                <table class="table">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th>Psychomotor</th>
-                                                                            <th>Rating</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr v-for="motor in psychtypes" :key="motor.id">
-                                                                            <td>{{motor.psychomotor}}</td>
-                                                                            <td v-for="rating in psychratings" :key="rating.id">
-                                                                                <label for="">{{rating.rating}}</label>
-                                                                                <input type="checkbox" :value="{psychtype:motor.id, rating:rating.id}" v-model="psychomotorRemarks.psychomotor" @input="checkInput2">
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
+            <div>
+            <div class="form-group mb-2">
+                <label>Academic Period</label>
+                <select v-model="psychomotorRemarks.academicPeriodid" class="form-control" @change="checkInput2">
+                    <option value="null">select</option>
+                    <option v-for="period in academicPeriods" :key="period.id" :value="period.id">
+                        {{ period.session.session }} - {{ period.term }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group mb-4">
+            <center>
+                <table class="table">
+                    <thead style="width:200px">
+                        <tr>
+                            <th>Psychomotor</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="motor in psychtypes" :key="motor.id">
+                            <td><center>{{motor.psychomotor}}</center></td>
+                            <td v-for="rating in psychratings" :key="rating.id">
+                                <center>
+                                    <label for="">{{rating.rating}}</label>
+                                    <input type="checkbox" :value="{psychtype:motor.id, rating:rating.id}" v-model="psychomotorRemarks.psychomotor" @input="checkInput2">
+                                </center>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </center>
 
-                                                            </div>
-                                                            <div class="form-group mb-2">
-                                                                <label>Principal Remark</label>
+            </div>
+            <!-- <div class="form-group mb-2">
+                <label>Principal Remark</label>
                                                                 <input type="text" @input="checkInput2" class="form-control" placeholder="..." v-model="psychomotorRemarks.remarks.principal">
-                                                            </div>
-                                                            <div class="form-group mb-2">
-                                                                <label>Class Teacher Remark</label>
-                                                                <input type="text" @input="checkInput2" class="form-control" placeholder="..." v-model="psychomotorRemarks.remarks.teacher">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    </center>
-                                                    <center style="margin-bottom:20px">
-                                                        <button class="btn btn-success" :disabled="checkFilled == true" @click="submitPsychMOtor()">
-                                                                Submit
-                                                            </button>
-                                                    </center>
-        </section>
+            </div> -->
+            <div class="form-group mb-2">
+                <label>Class Teacher Remark</label>
+                <input type="text" @input="checkInput2" class="form-control" placeholder="..." v-model="psychomotorRemarks.remarks.teacher">
+             </div>
+        </div>
+    </div>
+    </center>
+    <center style="margin-bottom:20px">
+        <button class="btn btn-success" :disabled="checkFilled == true" @click="submitPsychMOtor()">
+                Submit
+            </button>
+    </center>
+    </section>
         <section v-if="anaffecdomain">
-                                           <center>
-                                           <h5>Affective Domain for {{studentName }}</h5> 
-                                                <div>
-                                                    <label>Academic Period</label>
-                                                    <select v-model="domain.academicPeriodid" class="form-control" @change="checkInput3">
-                                                        <option value="null">select</option>
-                                                        <option v-for="period in academicPeriods" :key="period.id" :value="period.id">
-                                                            {{ period.session.session }} - {{ period.term }}
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </center>
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Domain</th>
-                                                        <th>Rating</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr v-for="dom in domains" :key="dom.id">
-                                                        <td>{{dom.affective_domain}}</td>
-                                                        <td v-for="rating in psychratings" :key="rating.id">
-                                                            <label for="">{{rating.rating}}</label>
-                                                                <input type="checkbox" :value="{domaintype:dom.id, rating:rating.id}" v-model="domain.affective_domain" @input="checkInput3">
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+            <center>
+            <h5>Affective Domain for {{studentName }}</h5> <br/>
+                <div>
+                    <label>Academic Period</label>
+                    <select v-model="domain.academicPeriodid" class="form-control" @change="checkInput3">
+                        <option value="null">select</option>
+                        <option v-for="period in academicPeriods" :key="period.id" :value="period.id">
+                            {{ period.session.session }} - {{ period.term }}
+                        </option>
+                    </select>
+                </div>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Domain</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="dom in domains" :key="dom.id">
+                        <td><center>{{dom.affective_domain}}</center></td>
+                        <td v-for="rating in psychratings" :key="rating.id">
+                            <center><label for="">{{rating.rating}}</label>
+                                <input type="checkbox" :value="{domaintype:dom.id, rating:rating.id}" v-model="domain.affective_domain" @input="checkInput3">
+                            </center>
+                         </td>
+                    </tr>
+                </tbody>
+            </table></center>
             <center style="margin-bottom:20px">
                 <button class="btn btn-success" :disabled="checkFilled == true" @click="submitAffectiveDomain()">
                         Submit
@@ -199,20 +204,20 @@ export default {
                     classid:null,
                 },
                 psychomotorRemarks:{
-                    studentid:"",
-                    academicPeriodid:"",
+                    studentid:null,
+                    academicPeriodid:null,
                     psychomotor:[],
                     remarks: {
-                            teacher:"",
-                            principal:""
+                            teacher:null,
+                            principal:null
                         }
 
                 },
                 studentName:null,
                 domains:null,
                 domain:{
-                    studentid:"",
-                    academicPeriodid:"",
+                    studentid:null,
+                    academicPeriodid:null,
                     affective_domain:[],
                 }
 
@@ -230,14 +235,14 @@ export default {
         },
 
         checkInput2(){
-            if(this.psychomotorRemarks.academicPeriodid != "" && this.psychomotorRemarks.psychomotor != [] && this.psychomotorRemarks.remarks.teacher != "" && this.psychomotorRemarks.remarks.principal !="" ){
+            if(this.psychomotorRemarks.academicPeriodid != null && this.psychomotorRemarks.psychomotor != [] && this.psychomotorRemarks.remarks.teacher != null){
                 this.checkFilled = false
             }else{
                 this.checkFilled = true
             }
         },
          checkInput3(){
-            if(this.domain.academicPeriodid != "" && this.domain.affective_domain != []  ){
+            if(this.domain.academicPeriodid != null && this.domain.affective_domain != []  ){
                 this.checkFilled = false
             }else{
                 this.checkFilled = true

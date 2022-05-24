@@ -44,26 +44,28 @@
 
 		<section style="margin-top:8%">
 			<h1>Time Table</h1>
-			<table>
-				<thead>
-					<tr>
-						<th>Subject</th>
-						<th>Day</th>
-						<th>Class</th>
-						<th>Start Time</th>
-						<th>Finish Time</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr v-for="table in timetable" :key="table">
-						<td>{{table.subjecttitle}}</td>
-						<td>{{table.day}}</td>
-						<td>{{table.classgroupname}} {{table.classroom}}</td>
-						<td>{{table.from}}</td>
-						<td>{{table.to}}</td>
-					</tr>
-				</tbody>
-			</table>
+			<center>
+				<table>
+					<thead>
+						<tr>
+							<th>Subject</th>
+							<th>Day</th>
+							<th>Class</th>
+							<th>Start Time</th>
+							<th>Finish Time</th>
+						</tr>
+					</thead>
+					<tbody  v-for="table in timetable" :key="table">
+						<tr  v-for="ttbl in table" :key="ttbl">
+							<td>{{ttbl.subjecttitle}}</td>
+							<td>{{ttbl.day}}</td>
+							<td>{{ttbl.classgroupname}} {{ttbl.classroom}}</td>
+							<td>{{ttbl.from}}</td>
+							<td>{{ttbl.to}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
 		</section>
 	
     
@@ -100,7 +102,8 @@ export default {
 
 		getTimTable(){
 			Dashboard.getTimTable(this.user.id, this.activeperiod).then((result) => {
-				this.timetable = result.data[1]
+				// console.log(result)
+				this.timetable = result.data
 			})
 		},
 

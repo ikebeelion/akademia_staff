@@ -14,17 +14,19 @@ export default{
         return Api.get('/get-students-sub/'+id)
     },
     getSubjectGroups(subj){
-        return Api.get('/subjectGrpc/'+subj)        
+        return Api.get('/subjectGrpd/'+subj)        
     },
     getAcademicPeriod(branchid){
-        return Api.get('/period/'+branchid)
-        
+        return Api.get('/period/'+branchid)        
     },
     getResultTypes(branchid){
         return Api.get('/type/'+branchid)
     },
     scoreStudentResult(form){
         return Api.post('/score', form)
+    },
+    scoreStudents(form){
+        return Api.post('/storeresult', form)
     },
     addComment(form){
         return Api.post('/comment/store', form) 
@@ -53,6 +55,12 @@ export default{
     },
     postDomain(form){
         return Api.post('/storedomain', form)
+    },
+    getClassRoomGroup(id){
+        return Api.get('classrmgroup/'+id)
+    },
+    getScoredStudents(periodid,subjectid,resulttype){
+        return Api.get('/scored-students/'+periodid+'/'+subjectid+'/'+resulttype)
     }
 
 }

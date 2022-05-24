@@ -1,8 +1,6 @@
 import Api from './Api'
-import Csrf from './Csrf'
 export default{
-    async login(form){
-        await Csrf.getCookie()
+    async login(form){     
         return Api.post("/login", form)        
     },
 

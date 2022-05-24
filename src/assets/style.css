@@ -6,7 +6,15 @@
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
 }
-
+.content-enter-active
+{
+transition: all 0.5s ease;
+}
+.content-enter-from,
+.content-leave-to {
+opacity: 0;
+transform: translateX(30px);
+}
 .form-group{
 	display: block;	
 }
@@ -14,7 +22,7 @@
 input, select, textarea{
 	padding: 10px;
 	border-radius: 20px;
-	border: .5px solid black;
+	border: .5px solid #777;
 	display: block;
 	margin-bottom: 15px;
 	width: 40%;
