@@ -19,6 +19,16 @@ transform: translateX(30px);
 	display: block;	
 }
 
+.loading{
+	position: absolute;	
+	padding-top: 20%;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+	background: rgba(0, 0, 0, 0.797);
+	height: 100%;
+}
+
 input, select, textarea{
 	padding: 10px;
 	border-radius: 20px;

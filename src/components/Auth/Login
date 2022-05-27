@@ -1,6 +1,6 @@
 <template>
-    <div class="container" >
-		<div class="card" v-if="!reset_password">
+    <div class="container">
+		<div class="card">
 			<div class="inner-box" id="card">
 				<div class="card-front">
 						<center>
@@ -20,29 +20,21 @@
                                            
 
 					
-					<small>
-						<button style="align-items:center; margin-top:10px" type="button" class="btn" @click="resetPassword()">
-							Forgot Password?
-						</button>
-					</small>
+					<a href="">Forgot password?</a>
 
 					<button type="button" class="btn" >
 					<i style="margin-top:25px" class="fas fa-copyright"> </i> 2022 Next It-Services
 					</button>
+
+
 				</div>		
 			</div>
-		</div>
-
-		<div v-if="reset_password">
-			<ResetPassword @nullpassword=nullPassword />
 		</div>
 	</div>		
 </template>
 <script>
 import User from '../../apis/User'
-import ResetPassword from './ResetPassword.vue'
 export default {
-	components:{ResetPassword},
 	data() {
         return {
             checkFilled:true,
@@ -53,7 +45,6 @@ export default {
             },
 			user:null,
             errors:null,
-			reset_password:false
         }
     },
     methods: {
@@ -66,11 +57,6 @@ export default {
             }
         },
 
-		nullPassword(){this.reset_password = false},
-resetPassword(){
-			this.reset_password = true
-		},
-
 		openRegister(){
 			var card = document.getElementById('card')
 			card.style.transform = 'rotateY(-180deg)'
@@ -82,16 +68,15 @@ resetPassword(){
 			card.style.transform = 'rotateY(0deg)'
 		},
 
-        login(){	
-							
+        login(){			
+					
 			User.login(this.logindata).then((result) =>{
 				// getUser
-				localStorage.setItem("stafftoken", result.data['access_token'])					
-				window.location.href = 'viewtable'
+				localStorage.setItem("stafftoken", result.data['access_token'])							
+				window.location.href = 'dashboard'
 				User.auth().then((result)=>{
-					console.log(result)
 					if(result.data.roleid == 3){
-						localStorage.setItem("auth", "true")						
+						localStorage.setItem("auth", "true")
 					}else{
 						this.errors = "Login as Staff"
 					}
@@ -155,6 +140,7 @@ resetPassword(){
 	box-sizing: border-box;
 	backface-visibility: hidden;
 }
+
 
 .card-back{
 	transform: rotateY(180deg);
@@ -222,6 +208,20 @@ button{
 
 .submit-btn{
 	position:  relative;
+}
+
+.submit-btn::after{
+	content: '\27a4';
+	color: #333;
+	line-height: 32px;
+	font-size: 17px;
+	height: 32px;
+	width: 32px;
+	border-radius: 50%;
+	background: #fff;
+	position: absolute;
+	right: -1px;
+	top: -1px;
 }
 .submit-btn:hover{
 	background: rgb(11, 117, 25);
